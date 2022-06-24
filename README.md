@@ -31,6 +31,7 @@ Starting from scratch, this challenge required writing  code to do the following
 
 ## Made Using:
 * Node.js
+* MongoDB
 
 ## Installation
 * to run this locally, clone the repository from GitHub, and run the command 'npm i' while in the project directory.  run 'npm start' in the command line to start the server.  insomnia can then be used to test the routes.
