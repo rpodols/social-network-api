@@ -30,7 +30,7 @@ router
     .post(createReaction)
 
 router
-    .route(':id/reactions/:reactionId')
+    .route('/:id/reactions/:reactionId')
     .delete(removeReaction);
 
 module.exports = router;
