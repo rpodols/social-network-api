@@ -4,8 +4,12 @@ const userController = {
 
     getAllUsers(req, res) {
         User.find({})
-           .then(dbUserData => res.json(dbUserData))
-           .catch(err => {
+            .populate({ path: "thoughts", select: "-__v"})
+            .populate({ path: "friends", select: "-__v"})
+            .select("-__v")
+            .sort({ _id: -1 })
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => {
             console.log(err);
             res.sendStatus(400);
            });
@@ -13,12 +17,15 @@ const userController = {
 
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
-        .then(dbUserData => res.json(dbUserData))
-        .catch(err => {
-            console.log(err);
-            res.sendStatus(400);
-        })
-
+            .populate({ path: "thoughts", select: "-__v"})
+            .populate({ path: "friends", select: "-__v"})
+            .select("-__v")
+            .sort({ _id: -1 })
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => {
+                console.log(err);
+                res.sendStatus(400);
+            })
     },
 
     createUser({ body }, res) {
@@ -45,12 +52,14 @@ const userController = {
         .catch(err => res.json(err));
     },
 
-    addNewFriend({ params, body }, res) {
+    addNewFriend({ params }, res) {
         User.findOneAndUpdate(
             { _id: params.id},
-            { $push: { friends: body }},
+            { $push: { friends: params.friendId }},
             { new: true, runValidators: true }
         )
+        .populate({ path: "friends", select: "-__v"})
+        .select("-__v")
         .then(dbUserData => {
             if (!dbUserData) {
                 res.status(404).json({ message: 'No user found with this id!' });
@@ -64,9 +73,11 @@ const userController = {
     deleteFriend({ params }, res) {
         User.findOneAndUpdate(
             { _id: params.id },
-            { $pull: { friends: {friendId: params.friendId } } },
+            { $pull: { friends: params.friendId } },
             { new: true }
         )
+        .populate({ path: "friends", select: "-__v"})
+        .select("-__v")
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.json(err));
     }

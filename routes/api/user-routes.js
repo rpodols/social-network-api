@@ -11,7 +11,7 @@ const {
 
 } = require('../../controller/user-controller');
 
-// /api/users           ** BONUS remove associated throughts when deleteing user **
+// /api/users           ** BONUS remove associated thoughts when deleteing user **
 router
     .route('/')
     .get(getAllUsers)
@@ -26,7 +26,7 @@ router
 
 // /api/users/:userId/friends/:friendsId             
 router 
-    .route('/:id/friends/:friendsId')
+    .route('/:id/friends/:friendId')
     .post(addNewFriend)
     .delete(deleteFriend)
 
