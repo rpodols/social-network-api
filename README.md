@@ -54,7 +54,7 @@ Starting from scratch, this challenge required writing  code to do the following
 * any questions, please feel free to reach out via email to rdpodols@gmail.com
 
 ## Link to Project & Screenshot
-![social-network-api Screenshot)](/assets/images/applicationImage1.png)
+![social-network-api Screenshot)](/assets/images/applicationImage.png)
 [Click here to view the project!](https://github.com/rpodols/social-network-api)
 
 
