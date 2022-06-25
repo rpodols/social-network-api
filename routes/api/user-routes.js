@@ -9,7 +9,7 @@ const {
     addNewFriend,
     deleteFriend
 
-} = require('../../controllers/user-controller');
+} = require('../../controller/user-controller');
 
 // /api/users           ** BONUS remove associated throughts when deleteing user **
 router
