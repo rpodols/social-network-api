@@ -1,4 +1,4 @@
-const { Thought } = require('../models');
+const { Thought, User } = require('../models');
 
 const thoughtController = {
 
@@ -24,9 +24,24 @@ const thoughtController = {
         })
     },
 
-    createThought({ body }, res) {
+    createThought({ body, params }, res) {
         Thought.create(body)
-        .then(dbThoughtData => res.json(dbThoughtData))
+        .then(dbThoughtData => {
+            User.findOneAndUpdate(
+                { _id: params.userId },
+                { $push: { thoughts: dbThoughtData._id } },
+                { new: true }
+            )
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'No user found with this id!'});
+                    return;
+                }
+                res.json(dbUserData);
+            })
+            //res.json(dbThoughtData))
+            .catch(err => res.json(err));
+        })
         .catch(err => res.json(err));
     },
 
@@ -46,9 +61,26 @@ const thoughtController = {
 
     deleteThought({ params }, res) {
         Thought.findOneAndDelete({ _id: params.id })
-        .then(dbThoughtData => res.json(dbThoughtData))
-        .catch(err => res.json(err));
-    },
+        .then(dbThoughtData => {
+            if (!dbThoughtData) {
+                res.status(404).json({ message: 'No thought found with this id!' })
+                return;
+            }
+            User.findOneAndUpdate(
+                { username: dbThoughtData.username },
+                { $pull: { thoughts: params.id } }
+            )
+            .then(() => {
+                res.json({ message: 'Thought has been deleted!' });
+            })
+            //res.json(dbThoughtData))
+            .catch(err => res.json(err))
+            })
+        .then(dbThoughtData => {
+            res.json(dbThoughtData)
+        })
+    .catch(err => res.json(err));
+    },  
 
     createReaction({ params, body }, res) {
         Thought.findOneAndUpdate(

@@ -15,6 +15,11 @@ const {
 router
     .route('/')
     .get(getAllThoughts)
+//  .post(createThought);
+
+// /api/thoughts/:userId
+router
+    .route('/:userId')
     .post(createThought);
 
 // /api/thoughts/:id
@@ -26,11 +31,11 @@ router
 
 // /api/thoughts/:thoughtId/reactions
 router
-    .route('/:id/reactions')
+    .route('/:thoughtId/reactions')
     .post(createReaction)
 
 router
-    .route('/:id/reactions/:reactionId')
+    .route('/:thoughtId/reactions/:reactionId')
     .delete(removeReaction);
 
 module.exports = router;
