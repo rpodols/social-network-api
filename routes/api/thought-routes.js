@@ -8,7 +8,6 @@ const {
     deleteThought,
     createReaction,
     removeReaction
-
 } = require('../../controller/thought-controller');
 
 // /api/thoughts
