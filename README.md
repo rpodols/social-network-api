@@ -63,5 +63,6 @@ Starting from scratch, this challenge required writing  code to do the following
 ## Walkthrough Video
 * video walkthrough to show full capabilities of app:
     - Click here for Part 1 showing user and friend routes: https://drive.google.com/file/d/1x4_VjbIfazCVaEHlo835B9GbcXqWnzcQ/view
-    - Click here for Part 2 showing thought and reaction routes: https://drive.google.com/file/d/1x4_VjbIfazCVaEHlo835B9GbcXqWnzcQ/view
+    - Click here for Part 2 showing thought and reaction routes: https://drive.google.com/file/d/1uN3mNGnYjrEc_wh8ci0Emdk9mmU154XL/view
+    - Click here for Part 3 showing additional reaction routes: https://drive.google.com/file/d/14O9-YBDi2pnyQB_8yQCaaAKHeRhAHzGd/view
 
