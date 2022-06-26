@@ -32,12 +32,15 @@ Starting from scratch, this challenge required writing  code to do the following
 ## Made Using:
 * Node.js
 * MongoDB
+* Mongoose
+* Day.js (npm package)
+* Express (npm package)
 
 ## Installation
-* to run this locally, clone the repository from GitHub, and run the command 'npm i' while in the project directory.  run 'npm start' in the command line to start the server.  insomnia can then be used to test the routes.
+* to run this locally, clone the repository from GitHub, and run the command 'npm i' while in the project's root directory.  run 'npm start' in the command line to start the server.  insomnia can then be used to test the routes.
 
 ## Usage
-* this can be used as a social network test api.
+* this can be used as a social network test api, showing background logic for creating users, user's ability to add other users as friends, user's ability to post their thoughts, and user's ability to post a reaction to another user's thought (along with the ability to remove users, thoughts, friends, and reactions, and the ability to revise user data and thoughts).
 
 ## Contributing
 * no outside contributions at this time
@@ -48,7 +51,7 @@ Starting from scratch, this challenge required writing  code to do the following
 [Click here for more license info!](https://choosealicense.com/licenses/mit/)
 
 ## Tests
-* tests can be run by using Insomnia, and testing different get, post, put, and delete commands once the server is running.  
+* tests can be run by using Insomnia, and testing different get, post, put, and delete commands once the server is running.  all possible route combination tests demonstrated (working) in below video.
 
 ## Questions
 * any questions, please feel free to reach out via email to rdpodols@gmail.com
@@ -57,4 +60,7 @@ Starting from scratch, this challenge required writing  code to do the following
 ![social-network-api Screenshot)](/public/assets/images/applicationImage.png)
 [Click here to view the project!](https://github.com/rpodols/social-network-api)
 
+## Walkthrough Video
+* video walkthrough to show full capabilities of app:
+    - Click here: PASTELINKHERE
 

@@ -39,7 +39,6 @@ const thoughtController = {
                 }
                 res.json(dbUserData);
             })
-            //res.json(dbThoughtData))
             .catch(err => res.json(err));
         })
         .catch(err => res.json(err));
@@ -73,7 +72,6 @@ const thoughtController = {
             .then(() => {
                 res.json({ message: 'Thought has been deleted!' });
             })
-            //res.json(dbThoughtData))
             .catch(err => res.json(err))
             })
     .catch(err => res.json(err));
